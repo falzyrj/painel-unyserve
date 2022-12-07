@@ -120,9 +120,9 @@ fun_upgrade () {
 apt-get upgrade -y > /dev/null 2>&1
 }
 fun_atpw4g () {
-link1=bitbucket.org/nandoslayer/4g/downloads/verifatt.sh
-link2=bitbucket.org/nandoslayer/4g/downloads/verpw4g
-link3=bitbucket.org/nandoslayer/4g/downloads/pw4g
+link1=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verifatt.sh
+link2=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verpw4g
+link3=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/pw4g
 [[ ! -d /etc/kernel/recweb ]] && mkdir /etc/kernel/recweb
 cd /etc/kernel/recweb || exit
 rm *.sh verpw4g > /dev/null 2>&1
@@ -193,7 +193,7 @@ echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m "
 tput cnorm
 }
 fun_tst () {
-link1=bitbucket.org/nandoslayer/4g/downloads/speedtest-cli
+link1=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/speedtest-cli
 if [ -e "/usr/bin/testevelocidade" ]; then
 testevelocidade --share > speed
 else
@@ -228,7 +228,7 @@ rm -rf $HOME/speed
 }
 painel_att () {
 clear
-link1=bitbucket.org/nandoslayer/4g/downloads/verweb
+link1=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/downloads/verweb
 cd /etc/kernel/recweb || exit
 rm verweb > /dev/null 2>&1
 wget $link1 > /dev/null 2>&1
@@ -246,7 +246,7 @@ chmod +x /usr/local/bin/composer
 fun_bar 'fun_update'
 echo ""
 clear
-linkzip=bitbucket.org/nandoslayer/4g/downloads/internet.zip
+linkzip=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/internet.zip
 IP=$(wget -qO- ipv4.icanhazip.com)
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
@@ -380,8 +380,8 @@ echo ""
 echo -e "\033[1;31mAGUARDE \033[1;32m.\033[1;33m.\033[1;31m. \033[1;33m"
 sleep 3
 clear
-link1=bitbucket.org/nandoslayer/4g/downloads/apibot
-link2=bitbucket.org/nandoslayer/4g/downloads/bot
+link1=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/apibot
+link2=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/bot
 screen -r -S "bot_painel" -X quit > /dev/null 2>&1
 screen -wipe 1>/dev/null 2>/dev/null
 sleep 2
@@ -426,8 +426,8 @@ exit;
 clear
 echo -e "\033[1;32mATIVANDO BOT PW4G \033[0m\n"
 fun_bot1() {
-link1=bitbucket.org/nandoslayer/4g/downloads/apibot
-link2=bitbucket.org/nandoslayer/4g/downloads/bot
+link1=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/apibot
+link2=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/bot
 [[ ! -e "/etc/kernel/recweb/bot" ]] && {
 wget -qO- $link1 -O /etc/kernel/recweb/apibot > /dev/null 2>&1
 wget -qO- $link2 -O /etc/kernel/recweb/bot > /dev/null 2>&1

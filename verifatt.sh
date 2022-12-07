@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
-link1=bitbucket.org/nandoslayer/4g/downloads/verpw4g
-link2=bitbucket.org/nandoslayer/4g/downloads/verweb
+link1=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verpw4g
+link2=https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verweb
 [[ -e /home/verpw4g ]] && rm /home/verpw4g
 wget -P /home $link1 > /dev/null 2>&1
 [[ -f "/home/verpw4g" ]] && {
