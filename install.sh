@@ -136,7 +136,7 @@ cat /dev/null > ~/.bash_history && history -c
 rm installorig* > /dev/null 2>&1
 exit;
 else
-echo -e '@unyserve' >/usr/lib/internet4g
+echo -e 'by: @unyserve' >/usr/lib/internet4g
 msg -bar
 echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
 msg -bar
