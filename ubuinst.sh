@@ -138,7 +138,7 @@ cat /dev/null > ~/.bash_history && history -c
 rm /bin/ubuinst* > /dev/null 2>&1
 exit;
 else
-  echo -e 'by: Uny serve inc.' >/usr/lib/telegram
+  echo -e 'Uny Serve inc.' >/usr/lib/telegram
   msg -bar
   echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
   msg -bar
@@ -152,15 +152,15 @@ else
   msg -bar
   echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
   msg -bar
-  apt-get install software-properties-common
-  apt-get update -y
-  apt-get upgrade -y
-  apt-get install figlet -y
+  apt install software-properties-common
+  apt update -y
+  apt install figlet -y
   apt-get install figlet boxes -y
   apt-get install lolcat -y
-  apt-get install curl -y
+  apt install curl -y
   add-apt-repository ppa:ondrej/php -y
-  apt-get update -y
+  apt update -y
+  apt upgrade -y
   clear
   msg -bar
   echo -e "\e[1;97m   \e[5m\033[1;100mATUALIZAÇÃO DO SISTEMA CONCLUÍDA COM SUCESSO!\033[1;37m"
@@ -215,11 +215,10 @@ clear
 }
 }
 function inst_base {
-echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
-apt-get install apache2 -y > /dev/null 2>&1
-apt-get install dirmngr apt-transport-https -y > /dev/null 2>&1
-apt-get install php7.3 libapache2-mod-php7.3 php7.3-xml php7.3-mcrypt php7.3-curl php7.3-mbstring php7.3-cli -y > /dev/null 2>&1
-apt-get install cron curl unzip -y > /dev/null 2>&1
+    echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
+apt install apache2 -y > /dev/null 2>&1
+apt install dirmngr apt-transport-https -y > /dev/null 2>&1
+apt install php8.1 libapache2-mod-php8.1 php8.1-xml php8.1-mcrypt php8.1-curl php8.1-mbstring php8.1-cli -y > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
 apt-get install mariadb-server -y > /dev/null 2>&1
 cd || exit
@@ -230,34 +229,29 @@ mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "CREATE DATABASE sshplus;" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON sshplus.* To 'root'@'localhost' IDENTIFIED BY '$pwdroot';" > /dev/null 2>&1
+mysql -u root -p"$pwdroot" -e "CREATE DATABASE net;" > /dev/null 2>&1
+mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON net.* To 'root'@'localhost' IDENTIFIED BY '$pwdroot';" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
 echo '[mysqld]
 max_connections = 1000' >> /etc/mysql/my.cnf
-apt install php7.3-mysql -y > /dev/null 2>&1
+apt install php8.1-mysql -y > /dev/null 2>&1
 phpenmod mcrypt > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin > /dev/null 2>&1
-apt-get install php7.3-ssh2 -y > /dev/null 2>&1
-apt-get install libssh2-1-dev libssh2-php -y > /dev/null 2>&1
+apt install php8.1-ssh2 -y > /dev/null 2>&1
 php -m | grep ssh2 > /dev/null 2>&1
-apt-get install php5-curl -y > /dev/null 2>&1
 curl -sS https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer > /dev/null 2>&1
 chmod +x /usr/local/bin/composer > /dev/null 2>&1
 cd /var/www/html || exit
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/gestorssh.zip > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/internet.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
-unzip gestorssh.zip > /dev/null 2>&1
+unzip internet.zip > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer require phpseclib/phpseclib:~2.0 > /dev/null 2>&1
 ln -s /usr/share/phpmyadmin/ /var/www/html > /dev/null 2>&1
 chmod 777 -R /var/www/html > /dev/null 2>&1
-rm gestorssh.zip index.html > /dev/null 2>&1
-chmod 0777 img
-cd img
-chmod 0777 icone perfil icons
+rm internet.zip index.html > /dev/null 2>&1
 systemctl restart mysql
 clear
 }
@@ -272,18 +266,15 @@ systemctl restart apache2 > /dev/null 2>&1
 rm phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
 cd /root || exit
 }
-
-function pconf { 
-sed "s/1020/$pwdroot/" /var/www/html/conexao.php > /tmp/pass
-mv /tmp/pass /var/www/html/conexao.php
-
+function pconf {
+sed -i "s/suasenha/$pwdroot/" /var/www/html/conexao.php > /dev/null 2>&1
 }
 function inst_db { 
-sed -i "s;dominio;$IP;g" /var/www/html/bdgestorssh.sql > /dev/null 2>&1
+sed -i "s;dominio;$IP;g" /var/www/html/bdpainel.sql > /dev/null 2>&1
 sleep 1
-if [[ -e "/var/www/html/bdgestorssh.sql" ]]; then
-    mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 sshplus < /var/www/html/bdgestorssh.sql > /dev/null 2>&1
-    rm /var/www/html/bdgestorssh.sql > /dev/null 2>&1
+if [[ -e "/var/www/html/bdpainel.sql" ]]; then
+    mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 net < /var/www/html/bdpainel.sql > /dev/null 2>&1
+    rm /var/www/html/bdpainel.sql > /dev/null 2>&1
 else
     clear
     echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
@@ -301,7 +292,7 @@ crontab -l > cronset > /dev/null 2>&1
 echo "
 @reboot /etc/autostart
 * * * * * /etc/autostart
-2 */3 * * * cd /var/www/html/cronphp && bash cron.autobackup.sh && cd /root" > cronset
+2 */3 * * * cd /var/www/html/cronphp/ && bash cron.autobackup.sh && cd /root" > cronset
 crontab cronset && rm cronset > /dev/null 2>&1
 }
 function fun_swap {
@@ -315,10 +306,6 @@ function fun_swap {
             echo '/bin/ram.img none swap sw 0 0' | tee -a /etc/fstab > /dev/null 2>&1
             sleep 2
 }
-function tst_bkp {
-cd || exit
-sed -i "s;1020;$pwdroot;g" /var/www/html/config/config.php > /dev/null 2>&1
-}
 clear
 install_start
 IP=$(wget -qO- ipv4.icanhazip.com)
@@ -329,7 +316,7 @@ clear
 echo -e "\E[44;1;37m    INSTALANDO PAINEL    \E[0m"
 echo ""
 echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy Uny serve inc.\033[1;36m" | lolcat
+echo -e "                              \033[1;31m por Uny Serve inc.\033[1;36m" | lolcat
 echo ""
 chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/chave") &>/dev/null
 
@@ -372,7 +359,7 @@ install_continue2
 } > /dev/null
 echo ""
 echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy Uny serve inc.\033[1;36m" | lolcat
+echo -e "                              \033[1;31m por Uny Serve inc.\033[1;36m" | lolcat
 echo ""
 echo -e "\033[1;36mDEFINA UMA NOVA SENHA PARA\033[0m" | lolcat
 echo -e "\033[1;36mO USUÁRIO ROOT DA VPS E\033[0m" | lolcat
@@ -394,11 +381,11 @@ clear
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 256M;g" /etc/php/8.1/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 256M;g" /etc/php/8.1/apache2/php.ini > /dev/null 2>&1
 echo -e "PAINEL Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy Uny serve inc.\033[1;36m" | lolcat
+echo -e "                              \033[1;31mUny Serve inc.\033[1;36m" | lolcat
 echo ""
 echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!" | lolcat
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP\033[0m"
+echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
@@ -409,7 +396,7 @@ echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
 echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mpweb\033[0m"
-echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37mUny serve inc.\033[0m" | lolcat
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37mUny Serve inc.\033[0m" | lolcat
 echo ""
 echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar...\033[1;32m! \033[0m"; read
 systemctl restart apache2 > /dev/null 2>&1
