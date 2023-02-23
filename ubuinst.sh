@@ -192,16 +192,16 @@ function install_continue {
 function install_continue2 {
 cd /bin || exit
 rm pweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/pweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/pweb > /dev/null 2>&1
 chmod 777 pweb > /dev/null 2>&1
 clear
 [[ ! -d /bin/ppweb ]] && mkdir /bin/ppweb
 cd /bin/ppweb || exit
 rm *.sh ver* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/verifatt.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/verpweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/verweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/whatsapp.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verifatt.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verpweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/whatsapp.sh > /dev/null 2>&1
 verp=$(sed -n '1 p' /bin/ppweb/verpweb| sed -e 's/[^0-9]//ig') &>/dev/null
 verw=$(sed -n '1 p' /bin/ppweb/verweb| sed -e 's/[^0-9]//ig') &>/dev/null
 echo -e "$verp" >/bin/ppweb/attpweb
@@ -244,7 +244,7 @@ curl -sS https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer > /dev/null 2>&1
 chmod +x /usr/local/bin/composer > /dev/null 2>&1
 cd /var/www/html || exit
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/internet.zip > /dev/null 2>&1
+wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/internet.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip internet.zip > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
@@ -318,10 +318,10 @@ dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo -e "\E[44;1;37m    INSTALANDO PAINEL    \E[0m"
 echo ""
-echo -e "WEB SONYC SSH" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "                              \033[1;31mModificado por @sonycssh\033[1;36m" | lolcat
 echo ""
-chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/install/chave") &>/dev/null
+chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/chave") &>/dev/null
 
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
     
