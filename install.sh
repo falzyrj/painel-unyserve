@@ -154,9 +154,8 @@ apt update -y
 apt upgrade -y
 apt install software-properties-common
 apt update -y
+apt upgrade -y
 apt install figlet -y
-apt-get install figlet boxes -y
-apt-get install lolcat -y
 apt install curl -y
 add-apt-repository ppa:ondrej/php -y
 apt update -y
@@ -317,7 +316,7 @@ dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo -e "\E[44;1;37m    INSTALANDO PAINEL    \E[0m"
 echo ""
-echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "INTERNET-SSH" | figlet
 echo -e "                              \033[1;31mBy Uny Serve Inc.\033[1;36m"
 echo ""
 chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/chave") &>/dev/null
@@ -358,7 +357,7 @@ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_
 sed -i "s/#PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 } > /dev/null
 echo ""
-echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "INTERNET-SSH" | figlet
 echo -e "                              \033[1;31mBy Uny Serve inc\033[1;36m"
 echo ""
 echo -e "\033[1;36mDEFINA UMA NOVA SENHA PARA\033[0m"
@@ -379,7 +378,7 @@ fun_swap
 clear
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
-echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "INTERNET-SSH" | figlet
 echo -e "                              \033[1;31mBy Uny Serve Inc.\033[1;36m"
 echo ""
 echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!"
