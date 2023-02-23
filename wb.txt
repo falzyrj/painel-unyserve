@@ -1,1 +1,0 @@
-apt install wget -y; wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/ubuinst.sh && chmod +x ubuinst.sh && ./ubuinst*
