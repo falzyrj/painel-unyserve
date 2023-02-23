@@ -136,7 +136,7 @@ cat /dev/null > ~/.bash_history && history -c
 rm installorig* > /dev/null 2>&1
 exit;
 else
-echo -e 'Desenvolvido por @UnyServe' >/usr/lib/internet4g
+echo -e 'Desenvolvido por @UnyServe' >/usr/lib/telegram
 msg -bar
 echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
 msg -bar
@@ -231,7 +231,7 @@ mysql -u root -p"$pwdroot" -e "CREATE DATABASE net;" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON net.* To 'root'@'localhost' IDENTIFIED BY '$pwdroot';" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
 echo '[mysqld]
-max_connections = 10000' >> /etc/mysql/my.cnf
+max_connections = 1000' >> /etc/mysql/my.cnf
 apt install php7.4-mysql -y > /dev/null 2>&1
 phpenmod mcrypt > /dev/null 2>&1
 a2enmod ssl > /dev/null 2>&1
@@ -358,7 +358,7 @@ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_
 sed -i "s/#PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 } > /dev/null
 echo ""
-echo -e  "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "               \033[1;31mDesenvolvido por @UnyServe\033[1;36m" | lolcat
 echo ""
 echo -e "\033[1;36mDEFINA UMA NOVA SENHA PARA\033[0m"
@@ -379,7 +379,7 @@ fun_swap
 clear
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
-echo -e  "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "               \033[1;31mDesenvolvido por @UnyServe\033[1;36m" | lolcat
 echo ""
 echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!"

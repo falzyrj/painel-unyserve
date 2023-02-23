@@ -255,7 +255,7 @@ clear
 echo ""
 echo -e "\E[44;1;37m    ATUALIZANDO O PAINEL     \E[0m"
 echo ""
-echo -e  "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "               \033[1;31mDesenvolvido por @UnyServe\033[1;36m" | lolcat
 echo ""
 clear
@@ -297,7 +297,7 @@ cd || exit
 echo ""
 echo -e "\E[44;1;32m    PAINELWEB ATUALIZADO COM SUCESSO     \E[0m"
 echo ""
-echo -e  "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
 echo ""
 echo -e "\033[1;36m PAINEL WEB DIGITE ESSE IP NO NAVEGADOR:\033[1;37m http://$IP/\033[0m"
 echo ""
