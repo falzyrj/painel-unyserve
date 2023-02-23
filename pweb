@@ -266,14 +266,11 @@ find /var/www/html/ -iname "*.lock" -type f -exec rm -rfv {} \; > /dev/null 2>&1
 wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/internet.zip > /dev/null 2>&1
 sleep 2
 unzip -o internet.zip > /dev/null 2>&1
-rm -rf internet.zip index.html bdgestorssh.sql > /dev/null 2>&1
+rm -rf internet.zip index.html bdpainel.sql > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer require phpseclib/phpseclib:~2.0 > /dev/null 2>&1
 ln -s /usr/share/phpmyadmin/ /var/www/html > /dev/null 2>&1
 chmod 777 -R /var/www/html > /dev/null 2>&1
-sed -i "s;49875103u;$senha;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
-sed -i "s;localhost;$IP;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
-sed -i "s;1020;$senha;g" /var/www/html/config/config.php > /dev/null 2>&1
 sleep 2
 if [[ -e "/var/www/html/conexao.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/conexao.php > /dev/null 2>&1
