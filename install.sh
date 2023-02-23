@@ -136,7 +136,7 @@ cat /dev/null > ~/.bash_history && history -c
 rm installorig* > /dev/null 2>&1
 exit;
 else
-echo -e 'by: @unyserve' >/usr/lib/internet4g
+echo -e 'Quando se quer muito alguma coisa sempre tem um preço a ser pago no final.' >/usr/lib/internet4g
 msg -bar
 echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
 msg -bar
@@ -316,8 +316,8 @@ dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo -e "\E[44;1;37m    INSTALANDO PAINEL    \E[0m"
 echo ""
-echo -e "INTERNET-SSH" | figlet
-echo -e "                              \033[1;31mBy @unyserve\033[1;36m"
+echo -e "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "                              \033[1;31mQuando se quer muito alguma coisa sempre tem um preço a ser pago no final.\033[1;36m"
 echo ""
 chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/chave") &>/dev/null
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
@@ -357,8 +357,8 @@ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_
 sed -i "s/#PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 } > /dev/null
 echo ""
-echo -e "INTERNET-SSH" | figlet
-echo -e "                              \033[1;31mBy @unyserve\033[1;36m"
+echo -e  "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "                              \033[1;31mQuando se quer muito alguma coisa sempre tem um preço a ser pago no final.\033[1;36m"
 echo ""
 echo -e "\033[1;36mDEFINA UMA NOVA SENHA PARA\033[0m"
 echo -e "\033[1;36mO USUÁRIO ROOT DA VPS E\033[0m"
@@ -378,8 +378,8 @@ fun_swap
 clear
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
-echo -e "INTERNET-SSH" | figlet
-echo -e "                              \033[1;31mBy @unyserve\033[1;36m"
+echo -e  "Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "                              \033[1;31mQuando se quer muito alguma coisa sempre tem um preço a ser pago no final.\033[1;36m"
 echo ""
 echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!"
 echo ""
