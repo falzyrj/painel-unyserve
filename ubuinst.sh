@@ -215,10 +215,10 @@ clear
 }
 }
 function inst_base {
-    echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
+echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
 apt install apache2 -y > /dev/null 2>&1
 apt install dirmngr apt-transport-https -y > /dev/null 2>&1
-apt install php8.1 libapache2-mod-php8.1 php8.1-xml php8.1-mcrypt php8.1-curl php8.1-mbstring php8.1-cli -y > /dev/null 2>&1
+apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring php7.4-cli php7.4-common php7.4-xmlrpc php7.4-gd php7.4-imagick php7.4-dev php7.4-imap php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
 apt-get install mariadb-server -y > /dev/null 2>&1
 cd || exit
@@ -233,12 +233,16 @@ mysql -u root -p"$pwdroot" -e "CREATE DATABASE net;" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON net.* To 'root'@'localhost' IDENTIFIED BY '$pwdroot';" > /dev/null 2>&1
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
 echo '[mysqld]
-max_connections = 1000' >> /etc/mysql/my.cnf
-apt install php8.1-mysql -y > /dev/null 2>&1
+max_connections = 10000' >> /etc/mysql/my.cnf
+apt install php7.4-mysql -y > /dev/null 2>&1
 phpenmod mcrypt > /dev/null 2>&1
-systemctl restart apache2 > /dev/null 2>&1
+a2enmod ssl > /dev/null 2>&1
+service apache2 restart > /dev/null 2>&1
+make-ssl-cert generate-default-snakeoil --force-overwrite > /dev/null 2>&1
+a2ensite default-ssl > /dev/null 2>&1
+service apache2 reload > /dev/null 2>&1
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin > /dev/null 2>&1
-apt install php8.1-ssh2 -y > /dev/null 2>&1
+apt install php7.4-ssh2 -y > /dev/null 2>&1
 php -m | grep ssh2 > /dev/null 2>&1
 curl -sS https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer > /dev/null 2>&1
@@ -262,26 +266,25 @@ unzip phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
 mv phpMyAdmin-5.2.0-all-languages phpmyadmin > /dev/null 2>&1
 chmod -R 0777 phpmyadmin > /dev/null 2>&1
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin > /dev/null 2>&1
-systemctl restart apache2 > /dev/null 2>&1 
+systemctl restart apache2 > /dev/null 2>&1
 rm phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
-cd /root || exit
+cd || exit
 }
 function pconf {
 sed -i "s/suasenha/$pwdroot/" /var/www/html/conexao.php > /dev/null 2>&1
 }
-function inst_db { 
-sed -i "s;dominio;$IP;g" /var/www/html/bdpainel.sql > /dev/null 2>&1
+function inst_db {
 sleep 1
 if [[ -e "/var/www/html/bdpainel.sql" ]]; then
-    mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 net < /var/www/html/bdpainel.sql > /dev/null 2>&1
-    rm /var/www/html/bdpainel.sql > /dev/null 2>&1
+mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 net < /var/www/html/bdpainel.sql > /dev/null 2>&1
+rm /var/www/html/bdpainel.sql > /dev/null 2>&1
 else
-    clear
-    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
-    sleep 2
-    systemctl restart apache2 > /dev/null 2>&1
+clear
+echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+sleep 2
+systemctl restart apache2 > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
-rm /bin/ubuinst* > /dev/null 2>&1
+rm install* > /dev/null 2>&1
 clear
 exit;
 fi
