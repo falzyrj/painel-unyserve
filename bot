@@ -848,8 +848,8 @@ local msg
 msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
 msg+="<b>🤖 BOT PW4G 🤖</b>\n"
 msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-msg+="<b>Desenvolvido por:</b> @nandoslayer\n"
-msg+="<b>Canal Oficial:</b> @nandoslayer\n\n"
+msg+="<b>Desenvolvido por:</b> @unyserve\n"
+msg+="<b>Canal Oficial:</b> @unyserve\n\n"
 msg+="Fui criado com o propósito de fornecer informações e ferramentas para gestão em servidores 🐧 GNU/Linux 🐧.\n\n"
 msg+="<b>Menu:</b> /menu\n"
 ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
