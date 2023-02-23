@@ -405,5 +405,4 @@ echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar...\033[1;32m! \033[0m"; read
 systemctl restart apache2 > /dev/null 2>&1
 systemctl restart mysql > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
-rm /bin/ubuinst* > /dev/null 2>&1
 clear
