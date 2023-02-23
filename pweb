@@ -332,10 +332,10 @@ clear
 echo ""
 echo -e "\033[1;33mRESTAURAR BANCO DE DADOS DO PAINEL WEB SONYC=PWEB!\033[0m" 
 echo ""
-echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nARQUIVO (\033[1;32msshplus.sql.bz2 ou sshplus.sql\033[1;33m) NA PASTA (root/restaurar)!\033[0m\n"
+echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nARQUIVO (\033[1;32mnet.sql.bz2 ou net.sql\033[1;33m) NA PASTA (root/restaurar)!\033[0m\n"
 echo ""
 echo -ne "\033[1;32mDE UM ENTER PRA CONTINUAR...\033[0m"; read -r
-bzip2 /root/restaurar/sshplus.sql > /dev/null 2>&1
+bzip2 /root/restaurar/net.sql > /dev/null 2>&1
 
 [[ ! -e /var/www/html/conexao.php ]] && {
 echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO!\033[0m"
@@ -349,8 +349,8 @@ pweb
 exit;
 }
 
-[[ ! -e /root/restaurar/sshplus.sql.bz2 ]] && {
-echo -e "\n\033[1;31mARQUIVO (\033[1;32msshplus.sql.bz2 ou sshplus.sql\033[1;31m) NÃO ENCONTRADO!\033[0m"
+[[ ! -e /root/restaurar/net.sql.bz2 ]] && {
+echo -e "\n\033[1;31mARQUIVO (\033[1;32mnet.sql.bz2 ou net.sql\033[1;31m) NÃO ENCONTRADO!\033[0m"
 echo ""
 sleep 3
 echo -e "\033[1;31mRETORNANDO...\033[0m"
@@ -362,7 +362,7 @@ exit;
 }
 
 passdb=$(cut -d"'" -f2 /var/www/html/conexao.php)
-[[ $(mysql -h localhost -u root -p$passdb -e "show databases" | grep -wc sshplus) == '0' ]] && {
+[[ $(mysql -h localhost -u root -p$passdb -e "show databases" | grep -wc net) == '0' ]] && {
 echo -e "\n\033[1;31mSEU PAINEL WEB NÃO É COMPATÍVEL!\033[0m"
 echo ""
 sleep 3
@@ -374,10 +374,11 @@ pweb
 exit;
 }
 
-bunzip2 /root/restaurar/sshplus.sql.bz2
-mysql -h localhost -u root -p$passdb -e "drop database sshplus"
-mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus'
-mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql
+}
+bunzip2 /root/restaurar/net.sql.bz2
+mysql -h localhost -u root -p$passdb -e "drop database net"
+mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE net'
+mysql -h localhost -u root -p$passdb --default_character_set utf8 net < /root/restaurar/net.sql
 echo ""
 echo -e "\n\033[1;32mDADOS RESTAURADO COM SUCESSO!\033[0m"
 echo ""
