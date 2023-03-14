@@ -95,7 +95,7 @@ Ubuntu) vercion=$(echo $system | awk '{print $2}' | cut -d '.' -f1,2) ;;
 esac
 }
 function dependencias {
-soft="python bc screen at unzip lsof netstat net-tools dos2unix nload jq python3 python-pip"
+soft="python bc screen at unzip zip lsof netstat net-tools dos2unix nload jq python3 python-pip"
 for i in $soft; do
 leng="${#i}"
 puntos=$((21 - $leng))
