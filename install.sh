@@ -122,16 +122,6 @@ msg -verm2 " ERRO"
 fi
 fi
 done
-}
-clear
-msg -bar
-echo -e "\033[1;31mPAINEL JÁ INSTALADO EM SUA VPS, RECOMENDO\033[0m"
-echo -e "\033[1;31mUMA FORMATAÇÃO PARA UMA NOVA INSTALAÇÃO!\033[0m"
-msg -bar
-sleep 5
-systemctl restart apache2 > /dev/null 2>&1
-cat /dev/null > ~/.bash_history && history -c
-rm installorig* > /dev/null 2>&1
 exit;
 else
 echo -e 'by: @unyserve' >/usr/lib/internet4g
@@ -265,28 +255,6 @@ ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
 rm phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
 cd || exit
-}
-function pconf {
-
-else
-clear
-echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
-sleep 2
-systemctl restart apache2 > /dev/null 2>&1
-cat /dev/null > ~/.bash_history && history -c
-rm install* > /dev/null 2>&1
-clear
-exit;
-fi
-clear
-}
-function cron_set {
-crontab -l > cronset > /dev/null 2>&1
-echo "
-@reboot /etc/autostart
-* * * * * /etc/autostart
-2 */3 * * * cd /var/www/html/cronphp/ && bash cron.autobackup.sh && cd /root" > cronset
-crontab cronset && rm cronset > /dev/null 2>&1
 }
 function fun_swap {
 swapoff -a
