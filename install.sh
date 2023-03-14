@@ -216,7 +216,7 @@ function inst_base {
 echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
 apt install apache2 -y > /dev/null 2>&1
 apt install dirmngr apt-transport-https -y > /dev/null 2>&1
-apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring php7.4-cli php7.4-common php7.4-sqlite3 php-7.4-zip php7.4-xmlrpc php7.4-gd php7.4-imagick php7.4-dev php7.4-imap php7.4-opcache php7.4-soap  php7.4-intl -y > /dev/null 2>&1
+apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring php7.4-cli php7.4-common php7.4-xmlrpc php7.4-gd php7.4-imagick php7.4-dev php7.4-imap php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
 apt-get install mariadb-server -y > /dev/null 2>&1
 cd || exit
