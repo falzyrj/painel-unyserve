@@ -123,6 +123,14 @@ fi
 fi
 done
 }
+function install_start {
+if [[ -e "" ]]; then
+clear
+msg -bar
+echo -e "\033[1;31mPAINEL JÁ INSTALADO EM SUA VPS, RECOMENDO\033[0m"
+echo -e "\033[1;31mUMA FORMATAÇÃO PARA UMA NOVA INSTALAÇÃO!\033[0m"
+msg -bar
+sleep 5
 systemctl restart apache2 > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm installorig* > /dev/null 2>&1
@@ -260,6 +268,15 @@ systemctl restart apache2 > /dev/null 2>&1
 rm phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
 cd || exit
 }
+function pconf {
+sed -i "s/suasenha/$pwdroot/"  > /dev/null 2>&1
+}
+function inst_db {
+sleep 1
+if [[ -e "" ]]; then
+mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 net <  > /dev/null 2>&1
+rm  > /dev/null 2>&1
+else
 clear
 echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
 sleep 2
