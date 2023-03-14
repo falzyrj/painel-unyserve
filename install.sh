@@ -152,14 +152,15 @@ echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1
 msg -bar
 apt update -y
 apt upgrade -y
-apt install software-properties-common
-apt update -y
-apt upgrade -y
-apt install figlet -y
-apt install curl -y
+apt-get install software-properties-common
+apt-get update -y
+apt-get upgrade -y
+apt-get install figlet -y
+apt-get install figlet boxes -y
+apt-get install lolcat -y
+apt-get install curl -y
 add-apt-repository ppa:ondrej/php -y
-apt update -y
-apt upgrade -y
+apt-get update -y
 clear
 msg -bar
 echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA CONCLUÍDA COM SUCESSO!\033[1;37m"
@@ -316,8 +317,8 @@ dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo -e "\E[44;1;37m    INSTALANDO PAINEL    \E[0m"
 echo ""
-echo -e"Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy @unyserve\033[1;36m"
+echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "            \033[1;31mA falta de dinheiro favorece a criatividade.\033[1;36m" | lolcat
 echo ""
 chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/chave") &>/dev/null
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
@@ -357,8 +358,8 @@ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_
 sed -i "s/#PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 } > /dev/null
 echo ""
-echo -e"Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy @unyserve\033[1;36m"
+echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "            \033[1;31mA falta de dinheiro favorece a criatividade.\033[1;36m" | lolcat
 echo ""
 echo -e "\033[1;36mDEFINA UMA NOVA SENHA PARA\033[0m"
 echo -e "\033[1;36mO USUÁRIO ROOT DA VPS E\033[0m"
@@ -378,8 +379,8 @@ fun_swap
 clear
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 256M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
-echo -e"Uny Serve 4G" | figlet | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy @unyserve\033[1;36m"
+echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
+echo -e "            \033[1;31mA falta de dinheiro favorece a criatividade.\033[1;36m" | lolcat
 echo ""
 echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!"
 echo ""
@@ -393,7 +394,6 @@ echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
 echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mpw4g\033[0m"
 echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@unyserve\033[0m"
-echo ""
 echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar...\033[1;32m! \033[0m"; read
 systemctl restart apache2 > /dev/null 2>&1
 systemctl restart mysql > /dev/null 2>&1
