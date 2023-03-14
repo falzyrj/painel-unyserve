@@ -269,13 +269,9 @@ rm phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
 cd || exit
 }
 function pconf {
-#sed -i "s/suasenha/$pwdroot/" /var/www/html/conexao.php > /dev/null 2>&1
 }
 function inst_db {
 sleep 1
-#if [[ -e "/var/www/html/bdpainel.sql" ]]; then
-#mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 net < /var/www/html/bdpainel.sql > /dev/null 2>&1
-#rm /var/www/html/bdpainel.sql > /dev/null 2>&1
 else
 clear
 echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
