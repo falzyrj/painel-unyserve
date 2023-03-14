@@ -219,17 +219,6 @@ apt install dirmngr apt-transport-https -y > /dev/null 2>&1
 apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring php7.4-cli php7.4-common php-7.4-zip  php7.4-sqlite3 php7.4-xmlrpc php7.4-gd php7.4-imagick php7.4-dev php7.4-imap php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
 apt-get install mariadb-server -y > /dev/null 2>&1
-cd || exit
-echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
-mysqladmin -u root password "$pwdroot" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "CREATE DATABASE net;" > /dev/null 2>&1
-mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES" > /dev/null 2>&1
-echo '[mysqld]
-max_connections = 10000' >> /etc/mysql/my.cnf
 apt install php7.4-mysql -y > /dev/null 2>&1
 phpenmod mcrypt > /dev/null 2>&1
 a2enmod ssl > /dev/null 2>&1
