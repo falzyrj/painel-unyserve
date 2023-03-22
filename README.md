@@ -32,3 +32,8 @@ apt install wget -y; wget https://raw.githubusercontent.com/falzyrj/painel-unyse
 ![09](https://raw.githubusercontent.com/falzyrj/img/main/desk9.png)
 ###### » PAGINA ATUALIZAÇÃO DIRETO DO PAINEL
 ![10](https://raw.githubusercontent.com/falzyrj/img/main/desk10.png)
+
+###### » MODIFICADO E MELHORADO POR:
+```
+» Falzy: t.me/unyserve
+```
