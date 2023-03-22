@@ -2,7 +2,7 @@
 ``` 
 PAINEL WEB PARA SSH EM PHP/CSS/HTML5
 ```
-<img src=”https://raw.githubusercontent.com/falzyrj/img/main/desk1.png” height="150" width="150">
+<img src=”https://raw.githubusercontent.com/falzyrj/img/main/desk1.png” height="400" width="400">
 
 #### » INSTALADOR
 ```
