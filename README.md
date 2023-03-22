@@ -10,5 +10,5 @@ apt install wget -y; wget https://raw.githubusercontent.com/falzyrj/painel-unyse
 ```
 #### » PEGUE SUA CHAVE GRÁTIS NO GRUPO DO TELEGRAM
 ```
-» t.me/unyserve
+» <a href="https://instagram.com/seu-usuário-instagram-aqui" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
 ```
