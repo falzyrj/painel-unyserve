@@ -191,15 +191,15 @@ read -t 60 -n 1 -rsp $'\033[1;39m       << Pressione enter para continuar >>\n'
 function install_continue2 {
 cd /bin || exit
 rm pw4g > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/pw4g > /dev/null 2>&1
+wget http://update.unyserve.com.br/painel-unyserve/pw4g > /dev/null 2>&1
 chmod 777 pw4g > /dev/null 2>&1
 clear
 [[ ! -d /etc/kernel/recweb ]] && mkdir /etc/kernel/recweb
 cd /etc/kernel/recweb || exit
 rm *.sh ver* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verifatt.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verpw4g > /dev/null 2>&1
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/verweb > /dev/null 2>&1
+wget http://update.unyserve.com.br/painel-unyserve/verifatt.sh > /dev/null 2>&1
+wget http://update.unyserve.com.br/painel-unyserve/verpw4g > /dev/null 2>&1
+wget http://update.unyserve.com.br/painel-unyserve/verweb > /dev/null 2>&1
 verp=$(sed -n '1 p' /etc/kernel/recweb/verpw4g| sed -e 's/[^0-9]//ig') &>/dev/null
 verw=$(sed -n '1 p' /etc/kernel/recweb/verweb| sed -e 's/[^0-9]//ig') &>/dev/null
 echo -e "$verp" >/etc/kernel/recweb/attpw4g
@@ -246,7 +246,7 @@ curl -sS https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer > /dev/null 2>&1
 chmod +x /usr/local/bin/composer > /dev/null 2>&1
 cd /var/www/html || exit
-wget https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/internet.zip > /dev/null 2>&1
+wget http://update.unyserve.com.br/painel-unyserve/internet.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip internet.zip > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
@@ -320,7 +320,7 @@ echo ""
 echo -e "UnyServe4G" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "            \033[1;31mA falta de dinheiro favorece a criatividade.\033[1;36m" | lolcat
 echo ""
-chave=$(curl -sSL "https://raw.githubusercontent.com/falzyrj/painel-unyserve/main/chave") &>/dev/null
+chave=$(curl -sSL "http://update.unyserve.com.br/painel-unyserve/chave") &>/dev/null
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
 if [[ "$key" = "$chave" ]]
 then
