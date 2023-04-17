@@ -7,7 +7,7 @@ SUPORTE: UBUNTU 18/20!
 
 ###### » INSTALADOR
 ```
-apt install wget -y; wget http://update.unyserve.com.br/painel-unyserve/install.sh && chmod +x install.sh && ./install*
+apt install wget -y; wget http://update.unyserve.com.br/install.sh && chmod +x install.sh && ./install*
 ```
 ###### » PEGUE SUA CHAVE GRÁTIS NO GRUPO DO TELEGRAM
 ```

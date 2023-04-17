@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
-link1=http://update.unyserve.com.br/painel-unyserve/verpw4g
-link2=http://update.unyserve.com.br/painel-unyserve/verweb
+link1=http://update.unyserve.com.br/verpw4g
+link2=http://update.unyserve.com.br/verweb
 [[ -e /home/verpw4g ]] && rm /home/verpw4g
 wget -P /home $link1 > /dev/null 2>&1
 [[ -f "/home/verpw4g" ]] && {
